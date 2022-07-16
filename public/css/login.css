@@ -1,0 +1,174 @@
+header {
+    display: none;
+}
+
+#signup,
+#forgot-password,
+#reset-password,
+#email-sent,
+#verify-email {
+    display: none;
+}
+
+#login,
+#signup,
+#forgot-password,
+#reset-password,
+#email-sent,
+#verify-email {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+}
+
+form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 300px;
+    padding-top: 100px;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 200px auto;
+}
+
+form h1 {
+    font-size: 150%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+form label.terms {
+    display: flex;
+    padding: 10px 0;
+}
+
+form label span:first-child,
+form label span:first-child {
+    display: block;
+    text-transform: uppercase;
+    font-size: 80%;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+label input[type=checkbox] {
+    display: inline-block;
+}
+
+form input[type=checkbox] + span {
+    display: inline-block;
+    font-size: 90%;
+    font-weight: bold;
+    color: rgb(127, 127, 127);
+    margin-left: 10px;
+}
+
+form input[type=checkbox] + span a {
+    color: rgb(0, 0, 0);
+}
+
+input[type=text],
+input[type=password],
+input[type=number] {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid rgb(195, 195, 195);
+    outline: none;
+}
+
+form input[type=submit],
+form input[type=submit] {
+    display: block;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(178, 0, 255);
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.forgot-password {
+    text-align: right;
+}
+
+form p {
+    text-align: center;
+    font-size: 90%;
+    font-weight: bold;
+    color: rgb(127, 127, 127);
+    margin: 15px 0;
+}
+
+form p a {
+    color: rgb(0, 0, 0);
+}
+
+form label.error {
+    position: relative;
+}
+
+form label.error span {
+    color: rgb(237, 28, 36);
+}
+
+form label.terms.error {
+    background-color: rgb(254, 241, 242);
+    background-image: url('../img/exclamation-point-icon.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right 6px center;
+}
+
+form label.error input {
+    border: 1px solid rgb(237, 28, 36);
+    background-color: rgb(254, 241, 242);
+    background-image: url('../img/exclamation-point-icon.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right 6px center;
+}
+
+p.error {
+    text-align: left;
+    color: rgb(237, 28, 36);
+}
+
+#verify-email form p.verified {
+    display: none;
+}
+
+#verify-email form.verified p.verified + p,
+#verify-email form.verified p.error,
+#verify-email form.verified label,
+#verify-email form.verified input[type=submit] {
+    display: none;
+}
+
+#verify-email form.verified p.verified {
+    display: block;
+}
+
+#reset-password form.reset p.error,
+#reset-password form.reset label,
+#reset-password form.reset input[type=submit] {
+    display: none;
+}
+
+#reset-password form.reset p.reset {
+    display: block;
+}
