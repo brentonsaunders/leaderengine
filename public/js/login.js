@@ -29,6 +29,8 @@ $(function() {
             return false;
         }
 
+        $('main').addClass('loading');
+
         $.post(
             '?controller=login',
             {
@@ -39,6 +41,8 @@ $(function() {
                 if(data.success === true) {
                     window.location = '?';
                 } else {
+                    $('main').removeClass('loading');
+
                     if(data.mustVerify === true) {
                         verify(email)
                         .then(() => {
@@ -96,6 +100,8 @@ $(function() {
             return false;
         }
 
+        $('main').addClass('loading');
+
         $.post(
             '?controller=login&action=signup',
             {
@@ -104,7 +110,8 @@ $(function() {
                 password: password,
             },
             data => {
-                console.log(data);
+                $('main').removeClass('loading');
+
                 if(data.success === true) {
                     verify(email)
                     .then(() => {
@@ -132,11 +139,15 @@ $(function() {
             return false;
         }
 
+        $('main').addClass('loading');
+
         verify(email)
         .then(() => {
             resetPassword(email);
         })
         .catch((result) => {
+            $('main').removeClass('loading');
+
             if(result.invalidEmail) {
                 $(this).find('p.error').text("Email is invalid");
             } else if(result.codeExpired) {
@@ -168,6 +179,8 @@ $(function() {
                 return false;
             }
 
+            $('main').addClass('loading');
+
             $.post(
                 '?controller=login&action=resetPassword',
                 {
@@ -175,7 +188,8 @@ $(function() {
                     password: password
                 },
                 data => {
-                    console.log(data);
+                    $('main').removeClass('loading');
+
                     if(data.success === true) {
                         $(this).addClass('reset');
                     }
