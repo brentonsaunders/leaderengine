@@ -12,10 +12,10 @@ class View {
     ];
     private $activeNavItem = 'home';
     private $navItems = [
-        ['title' => 'Home', 'name' => 'home', 'action' => 'index'],
-        ['title' => 'Scenarios', 'name' => 'scenarios', 'action' => 'scenarios'],
-        ['title' => 'About', 'name' => 'about', 'action' => 'about'],
-        ['title' => 'Privacy', 'name' => 'privacy', 'action' => 'privacy'],
+        ['title' => 'Home', 'name' => 'home', 'url' => '?'],
+        ['title' => 'Scenarios', 'name' => 'scenarios', 'url' => '?controller=scenarios'],
+        ['title' => 'About', 'name' => 'about', 'url' => '?action=about'],
+        ['title' => 'Privacy', 'name' => 'privacy', 'url' => '?action=privacy'],
     ];
 
     public function __construct() {
@@ -71,7 +71,7 @@ EOD;
                 $class = 'active';
             }
 
-            echo "<li><a class=\"$class\" name=\"{$item['name']}\" href=\"?action={$item['action']}\">{$item['title']}</a></li>\n";
+            echo "<li><a class=\"$class\" name=\"{$item['name']}\" href=\"{$item['url']}\">{$item['title']}</a></li>\n";
         }
 
         echo <<<EOD

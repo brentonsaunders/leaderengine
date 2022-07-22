@@ -47,7 +47,7 @@ class ResponseDao {
         );
 
         if(count($rows) === 0) {
-            return null;
+            return [];
         }
 
         $responses = [];
@@ -78,7 +78,7 @@ class ResponseDao {
         );
 
         if(count($rows) === 0) {
-            return null;
+            return [];
         }
 
         $responses = [];
@@ -99,6 +99,39 @@ class ResponseDao {
 
         return $responses;
     }
+
+    public function getDirectResponsesByScenarioId($scenarioId) {
+        $rows = $this->db->query(
+            'SELECT * ' . 
+            'FROM responses ' . 
+            'WHERE scenario_id = :scenario_id AND ' . 
+            'response_id IS NULL',
+            [':scenario_id' => $scenarioId]
+        );
+
+        if(count($rows) === 0) {
+            return [];
+        }
+
+        $responses = [];
+
+        foreach($rows as $row) {
+            $responses[] = new Response(
+                $row['id'],
+                $row['scenario_id'],
+                $row['response_id'],
+                $row['user_id'],
+                $row['editor_id'],
+                $row['from_you'],
+                $row['text'],
+                $row['time'],
+                $row['approved']
+            );
+        }
+
+        return $responses;
+    }
+
 
     public function insert(Response $response) {
         $this->db->query(

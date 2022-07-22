@@ -296,3 +296,64 @@ main {
     font-weight: bold;
     margin-bottom: 20px;
 }
+
+main {
+    padding: 15px;
+}
+
+#departments {
+}
+
+#scenarios h1 {
+    color: rgb(114, 114, 114);
+    font-size: 115%;
+    margin-bottom: 15px;
+}
+
+#departments a,
+#scenarios a {
+    display: block;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(180, 180, 180);
+    padding: 15px;
+}
+
+#departments a + a,
+#scenarios a + a {
+    margin-top: 15px;
+}
+
+.box {
+    display: block;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(180, 180, 180);
+    padding: 15px;
+}
+
+.box + .box {
+    margin-top: 15px;
+}
+
+#scenario h1 {
+    font-size: 110%;
+    margin-bottom: 20px;
+}
+
+#scenario p {
+    margin-bottom: 20px;
+    line-height: 150%;
+}
+
+#responses .box .user {
+    font-size: 80%;
+    font-weight: normal;
+    margin-top: 10px;
+}

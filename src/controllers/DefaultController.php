@@ -5,6 +5,11 @@ use Controllers\BaseController;
 
 use Views\View;
 use Views\TemplateView;
+use Views\DepartmentsView;
+use Models\Department;
+use Daos\DepartmentDao;
+use Database;
+use Config;
 
 class DefaultController extends BaseController {
     public function __construct($router, $requestMethod) {
@@ -31,12 +36,7 @@ class DefaultController extends BaseController {
     }
 
     public function scenarios() {
-        $view = new TemplateView('scenarios.php');
-
-        $view->setActiveNavItem('scenarios');
-        $view->setTitle('Scenarios');
-
-        $view->render();
+        
     }
 
     public function about() {

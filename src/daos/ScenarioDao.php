@@ -93,7 +93,7 @@ class ScenarioDao {
 
         return $scenarios;
     }
-
+    
     public function getById($id) {
         $rows = $this->db->query(
             'SELECT * ' . 
