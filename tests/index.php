@@ -2,24 +2,25 @@
 require '../src/autoload.php';
 require '../config/Config.php';
 
-use Daos\ScenarioDao;
-use Models\Scenario;
+use Daos\ResponseDao;
+use Models\Response;
 
-$scenarioDao = new ScenarioDao(new Database(Config::getDbConfig()));
+$responseDao = new ResponseDao(new Database(Config::getDbConfig()));
 
-$scenario = $scenarioDao->getById(2);
+$response = $responseDao->getById(2);
 
-$scenario->setTitle('New Title');
-$scenario->setApproved(true);
-$scenario->setEditorId(2);
+$responseDao->delete($response);
 
-$scenarioDao->delete($scenario);
+/*
+// $response->setText('Here is ANOTHER test');
+
+// $responseDao->update($response);
 
 echo '<pre>';
 
-print_r($scenario);
+print_r($responses);
 
 echo '</pre>';
-
+*/
 
 
