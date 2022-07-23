@@ -14,6 +14,8 @@ class ScenarioView extends View {
         $this->setActiveNavItem('scenarios');
         $this->setTitle('Scenario');
 
+        $this->addScript('js/scenario.js');
+
         $this->scenario = $scenario;
         $this->responseUserLikes = $responseUserLikes;
     }
@@ -33,15 +35,33 @@ class ScenarioView extends View {
                 $text = $responseUserLikes->getResponse()->getText();
                 $name = $responseUserLikes->getUser()->getName();
                 $email = $responseUserLikes->getUser()->getEmail();
+                $responseId = $responseUserLikes->getResponse()->getId();
 
-                echo $responseUserLikes->getLikes();
-                echo ($responseUserLikes->getLikedByCurrentUser()) ? ',true' : ',false';
 
-                echo "<a class=\"response box\" href=\"\">$text<div class=\"user\">$name ($email)</div></a>\n";
+                $liked = ($responseUserLikes->getLikedByCurrentUser()) ? 'liked' : '';
+
+                $likes = $responseUserLikes->getLikes();
+
+                echo "<div class=\"response\"><div data-response-id=\"$responseId\" class=\"likes $liked\"><a class=\"num-likes\">$likes</a></div><a class=\"box\" href=\"\">$text</a><div class=\"user\">$name ($email)</div></div>\n";
             }
         }
 
         echo "</div>\n";
+        echo "<div id=\"add\"></div>\n";
+        echo "</div>\n";
+
+        echo "<div id=\"add-response\">\n";
+        echo "<div id=\"close-button\"></div>\n";
+        echo "<form>\n";
+        echo "<h1>Add Response</h1>\n";
+        echo "<div id=\"the-scenario\"></div>\n";
+        echo "<p class=\"rules\">Rules: Add a response to the above scenario. Your response should be <strong>spoken dialogue</strong> written from the perspective of the <strong>associate</strong>, and should be written in the <strong>first-person</strong> only (i.e., I, me, we). Your response should be at least <strong>100 characters</strong> long.</p>\n";
+        echo "<div id=\"your-response\">\n";
+        echo "<textarea placeholder=\"Your Response\"></textarea>\n";
+        echo "<div id=\"num-characters\">0</div>\n";
+        echo "<input type=\"submit\" value=\"Submit\" />\n";
+        echo "</div>\n";
+        echo "</form>\n";
         echo "</div>\n";
     }
 }

@@ -84,4 +84,21 @@ class ScenariosController extends BaseController {
             $view->render();
         }
     }
+
+    public function like($responseId) {
+        if(empty($_SESSION['leaderengine']['user_id'])) {
+            return false;
+        }
+
+        $userId = $_SESSION['leaderengine']['user_id'];
+
+        // Check if the user has already liked it
+        if($this->responseLikesDao->getByResponseIdAndUserId($responseId, $userId) > 0) {
+            // Unlike it
+            $this->responseLikesDao->delete($responseId, $userId);
+        } else {
+            // Like it
+            $this->responseLikesDao->insert($responseId, $userId);
+        }
+    }
 }

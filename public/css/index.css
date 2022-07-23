@@ -352,8 +352,83 @@ main {
     line-height: 150%;
 }
 
-#responses .box .user {
+#responses .response {
+    position: relative;
+    margin: 10px 0;
+}
+
+#responses .likes {
+    position: relative;
+    height: 27px;
+    margin-bottom: 5px;
+    font-size: 80%;
+}
+
+#responses .likes .num-likes {
+    display: flex;
+    align-items: center;
+    height: 27px;
+    position: absolute;
+    right: 0;
+    color: rgb(100, 100, 100);
+    font-weight: bold;
+}
+
+#responses .likes .num-likes::before {
+    display: flex;
+    content: '';
+    width: 27px;
+    height: 27px;
+    background-image: url('../img/like-icon-off.png');
+    background-repeat: no-repeat;
+    background-size: 15px 13px;
+    background-position: center;
+}
+
+#responses .likes.liked .num-likes::before {
+    background-image: url('../img/like-icon-on.png');
+}
+
+#responses .user {
     font-size: 80%;
     font-weight: normal;
     margin-top: 10px;
+}
+
+#add {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(178, 0, 255);
+    border-radius: 60px;
+    background-image: url('../img/pen-icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 26px;
+}
+
+#add-response {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(240, 240, 240);
+}
+
+#add-response #close-button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-image: url('../img/close-icon-2.png');
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    background-position: right 10px center;
+}
+
+#add-response form {
+    position: relative;
 }
