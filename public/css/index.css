@@ -80,7 +80,7 @@ nav {
     background-color: rgb(40, 40, 40);
 }
 
-#close-button {
+#nav-close-button {
     position: absolute;
     right: 0;
     width: 56px;
@@ -395,7 +395,7 @@ main {
     margin-top: 10px;
 }
 
-#add {
+#add-response-button {
     position: fixed;
     right: 15px;
     bottom: 15px;
@@ -411,7 +411,6 @@ main {
 
 #add-response {
     position: fixed;
-    z-index: 100;
     left: 0;
     top: 0;
     right: 0;
@@ -419,8 +418,7 @@ main {
     background-color: rgb(240, 240, 240);
 }
 
-#add-response #close-button {
-    position: relative;
+#add-response-close-button {
     width: 100%;
     height: 40px;
     background-image: url('../img/close-icon-2.png');
@@ -429,6 +427,97 @@ main {
     background-position: right 10px center;
 }
 
+#add-response h1 {
+    font-size: 133%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 #add-response form {
-    position: relative;
+    padding: 15px;
+}
+
+#add-response .rules {
+    font-size: 100%;
+    line-height: 150%;
+    color: rgb(100, 100, 100);
+    margin-bottom: 15px;
+}
+
+#add-response textarea {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 10px 5px;
+    outline: none;
+    border: 1px solid rgb(34, 177, 76);
+    resize: none;
+}
+
+#add-response #num-chars {
+    font-size: 80%;
+    margin-top: 5px;
+    text-align: right;
+    color: rgb(100, 100, 100);
+    font-weight: bold;
+}
+
+#add-response input[type=submit] {
+    position: fixed;
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    background-color: rgb(178, 0, 255);
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+#add-response #your-response.too-long textarea {
+    border-color: rgb(176, 34, 34);
+}
+
+#add-response #your-response.too-long #num-chars {
+    color: rgb(176, 34, 34);
+}
+
+#add-response span.error {
+    display: block;
+    color: rgb(237, 28, 36);
+    margin-bottom: 10px;
+}
+
+#add-response .done {
+    display: none;
+}
+
+#add-response .done p {
+    color: rgb(100, 100, 100);
+    padding: 15px;
+    text-align: center;
+}
+
+#add-response.done .done {
+    display: block;
+}
+
+#add-response #the-scenario p {
+    margin-bottom: 15px;
+    line-height: 150%;
+}
+
+main.loading::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    content: '';
+    background-image: url('../img/loading.gif');
+    background-position: center;
+    background-repeat: no-repeat;
 }

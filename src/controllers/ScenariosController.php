@@ -46,6 +46,12 @@ class ScenariosController extends BaseController {
     }
 
     public function index($departmentId = null, $scenarioId = null) {
+        if($this->getRequestMethod() === 'POST') {
+            $postData = $this->getPostData();
+            
+            return true;
+        }
+        
         if($scenarioId) {
             $scenario = $this->scenarioDao->getById($scenarioId);
 

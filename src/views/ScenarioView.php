@@ -22,7 +22,6 @@ class ScenarioView extends View {
 
     protected function main() {
         echo "<div id=\"scenario\">\n";
-        echo "<h1>{$this->scenario->getTitle()}</h1>\n";
         echo "<p>Scenario: {$this->scenario->getDescription()}</p>\n";
         echo "<p>Objective: {$this->scenario->getObjective()}</p>\n";
         echo "<div id=\"responses\">\n";
@@ -47,20 +46,28 @@ class ScenarioView extends View {
         }
 
         echo "</div>\n";
-        echo "<div id=\"add\"></div>\n";
+        echo "<div id=\"add-response-button\"></div>\n";
         echo "</div>\n";
 
         echo "<div id=\"add-response\">\n";
-        echo "<div id=\"close-button\"></div>\n";
+        echo "<div id=\"add-response-close-button\"></div>\n";
+        echo "<div class=\"done\">\n";
+        echo "<h1>Done!</h1>\n";
+        echo "<p>Your response has been submitted, and will be visible to all users after it has been reviewed by a moderator.</p>\n";
+        echo "</div>\n";
         echo "<form>\n";
         echo "<h1>Add Response</h1>\n";
-        echo "<div id=\"the-scenario\"></div>\n";
-        echo "<p class=\"rules\">Rules: Add a response to the above scenario. Your response should be <strong>spoken dialogue</strong> written from the perspective of the <strong>associate</strong>, and should be written in the <strong>first-person</strong> only (i.e., I, me, we). Your response should be at least <strong>100 characters</strong> long.</p>\n";
-        echo "<div id=\"your-response\">\n";
-        echo "<textarea placeholder=\"Your Response\"></textarea>\n";
-        echo "<div id=\"num-characters\">0</div>\n";
-        echo "<input type=\"submit\" value=\"Submit\" />\n";
+        echo "<div id=\"the-scenario\">\n";
+        echo "<p>Scenario: {$this->scenario->getDescription()}</p>\n";
+        echo "<p>Objective: {$this->scenario->getObjective()}</p>\n";
         echo "</div>\n";
+        echo "<p class=\"rules\">Rules: Add a response to the above scenario. Your response should be <strong>spoken dialogue</strong> written from the perspective of the <strong>associate</strong>, and should be written in the <strong>first person</strong> (i.e., I, me, we).\n";
+        echo "<div id=\"your-response\">\n";
+        echo "<span class=\"error\"></span>\n";
+        echo "<textarea placeholder=\"Your Response\"></textarea>\n";
+        echo "<div id=\"num-chars\">0/500</div>\n";
+        echo "</div>\n";
+        echo "<input type=\"submit\" value=\"Submit\" />\n";
         echo "</form>\n";
         echo "</div>\n";
     }

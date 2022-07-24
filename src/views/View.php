@@ -60,7 +60,7 @@ class View {
 <div id="title">{$this->title}</div>
 <div id="settings-button"></div>
 <nav>
-    <div id="close-button"></div>
+    <div id="nav-close-button"></div>
     <ul>
 EOD;
 
