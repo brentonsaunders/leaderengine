@@ -55,7 +55,7 @@ class ScenarioView extends View {
         echo "<h1>Done!</h1>\n";
         echo "<p>Your response has been submitted, and will be visible to all users after it has been reviewed by a moderator.</p>\n";
         echo "</div>\n";
-        echo "<form>\n";
+        echo "<form data-scenario-id=\"{$this->scenario->getId()}\" data-from-you=\"1\">\n";
         echo "<h1>Add Response</h1>\n";
         echo "<div id=\"the-scenario\">\n";
         echo "<p>Scenario: {$this->scenario->getDescription()}</p>\n";

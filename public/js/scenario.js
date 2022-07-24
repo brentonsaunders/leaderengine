@@ -8,7 +8,7 @@ $(function() {
         $('#your-response textarea').val('');
         $('#your-response span.error').text('');
         $('#num-chars').text('0/500');
-        $('#your-response').removeClass('done');
+        $('#add-response').removeClass('done');
     });
 
     $('#add-response form').submit(function(e) {
@@ -23,7 +23,22 @@ $(function() {
         } else if(text.length > 500) {
             $('#your-response span.error').text('Your response is too long');
         } else {
-            $
+            $('main').addClass('loading');
+
+            $.post(
+                '?controller=scenarios',
+                {
+                    scenarioId: $('#add-response form').data('scenario-id'),
+                    responseId: 'null',
+                    fromYou: $('#add-response form').data('from-you'),
+                    text: text
+                },
+                function(data) {
+                    $('main').removeClass('loading');
+
+                    $('#add-response').addClass('done');
+                }
+            );
         }
     });
 

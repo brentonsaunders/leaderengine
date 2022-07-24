@@ -410,6 +410,7 @@ main {
 }
 
 #add-response {
+    display: none;
     position: fixed;
     left: 0;
     top: 0;
@@ -502,6 +503,10 @@ main {
 
 #add-response.done .done {
     display: block;
+}
+
+#add-response.done form {
+    display: none;
 }
 
 #add-response #the-scenario p {

@@ -21,6 +21,7 @@ class ScenariosController extends BaseController {
     private ScenarioDao $scenarioDao;
     private DepartmentDao $departmentDao;
     private UserDao $userDao;
+    private ResponseDao $responseDao;
     private ResponseLikesDao $responseLikesDao;
 
     public function __construct($router, $requestMethod) {
@@ -48,7 +49,21 @@ class ScenariosController extends BaseController {
     public function index($departmentId = null, $scenarioId = null) {
         if($this->getRequestMethod() === 'POST') {
             $postData = $this->getPostData();
-            
+
+            $response = new Response(
+                null,
+                $postData['scenarioId'],
+                ($postData['responseId'] === 'null') ? null : $postData['response_id'],
+                $_SESSION['leaderengine']['user_id'],
+                null,
+                ($postData['fromYou'] === '1') ? 1 : 0,
+                $postData['text'],
+                null,
+                null
+            );
+
+            $this->responseDao->insert($response);
+
             return true;
         }
         

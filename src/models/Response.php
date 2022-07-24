@@ -20,7 +20,8 @@ class Response {
         $editorId,
         $fromYou,
         $text,
-        $time
+        $time,
+        $approved
     ) {
         $this->id = $id;
         $this->scenarioId = $scenarioId;
@@ -30,6 +31,7 @@ class Response {
         $this->fromYou = $fromYou;
         $this->text = $text;
         $this->time = $time;
+        $this->approved = $approved;
     }
 
     public function getId() {
