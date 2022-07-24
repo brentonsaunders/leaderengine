@@ -342,6 +342,14 @@ main {
     margin-top: 15px;
 }
 
+main {
+    overflow: auto;
+}
+
+#scenario {
+    padding-bottom: 50px;
+}
+
 #scenario h1 {
     font-size: 110%;
     margin-bottom: 20px;
@@ -365,6 +373,7 @@ main {
 }
 
 #responses .likes .num-likes {
+    position: relative;
     display: flex;
     align-items: center;
     height: 27px;
